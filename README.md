@@ -2,6 +2,9 @@
 # Project #3: Where Am I
 ![Where Am I RVIZ Demo](whereami_rviz.gif) | ![Where Am I Gazebo Demo](whereami_gazebo.gif)
 
+<img src="whereami_rviz.gif" width="425"/> <img src="whereami_gazebo.gif" width="425"/> 
+
+
 ## Introduction
 This project involves using a robot mounted with a laser scanner and Monte Carlo Localization to localize the mobile robot in a simulated environment.
 
