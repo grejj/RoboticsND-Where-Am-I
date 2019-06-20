@@ -1,7 +1,5 @@
 # Udacity Robotics Nanodegree
 # Project #3: Where Am I
-![Where Am I RVIZ Demo](whereami_rviz.gif) | ![Where Am I Gazebo Demo](whereami_gazebo.gif)
-
 <img src="whereami_rviz.gif" width="425"/> <img src="whereami_gazebo.gif" width="425"/> 
 
 
