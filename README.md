@@ -1,6 +1,6 @@
 # Udacity Robotics Nanodegree
 # Project #3: Where Am I
-![Where Am I RVIZ Demo](whereami_rviz.gif)![Where Am I Gazebo Demo](whereami_gazebo.gif)
+![Where Am I RVIZ Demo](whereami_rviz.gif) | ![Where Am I Gazebo Demo](whereami_gazebo.gif)
 
 ## Introduction
 This project involves using a robot mounted with a laser scanner and Monte Carlo Localization to localize the mobile robot in a simulated environment.
