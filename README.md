@@ -1,9 +1,9 @@
 # Udacity Robotics Nanodegree
-# Project #2: Go Chase It
-![Go Chase It Demo](demo.gif)
+# Project #3: Where Am I
+![Where Am I RVIZ Demo](whereami_rviz.gif)![Where Am I Gazebo Demo](whereami_gazebo.gif)
 
 ## Introduction
-This project involves designing and building a mobile robot that is capable of chasing and following white colored balls.
+This project involves using a robot mounted with a laser scanner and Monte Carlo Localization to localize the mobile robot in a simulated environment.
 
 ## Structure
 There are two packages within this repository:
@@ -11,42 +11,50 @@ There are two packages within this repository:
 ### 1. my_robot
 This package defines the mobile robot under URDF as well the world that it is housed within.
 
-### 2. ball_chaser
-This package contains two nodes which are responsible for locating the position of the white ball in the camera field of view and then sending the corresponding commands to the mobile robot to follow the white ball.
+### 2. pgm_map_creator
+This package converts a .world file into a .pgm grayscale map file.
+
+### 3. teleop_twist_keyboard
+This package allows the user to control the mobile robot using a keyboard.
 
 ## Setup
 First, install Gazebo and ROS on Linux.
 
-Then, create a catkin workspace with a src/ directory and initialize the workspace:
+Then, install the following ROS packages:
 ```console
-$ mkdir -p catkin_ws/src
-$ cd catkin_ws/src
-$ catkin_init_workspace
+$ sudo apt-get update && sudo apt-get upgrade -y
+$ sudo apt-get install ros-kinetic-navigation ros-kinetic-map-server ros-kinetic-move-base ros-kinetic-amcl libignition-math2-dev protobuf-compiler
 ```
 
 Next, download the packages within this repository called 'my_robot' and 'ball_chaser':
-```
+```console
 $ git clone https://github.com/grejj/RoboticsND-Go-Chase-It.git
 $ cp -R RoboticsND-Go-Chase-It/ball_chaser .
 $ cp -R RoboticsND-Go-Chase-It/my_robot .
 $ rm -rf RoboticsND-Go-Chase-It
 ```
 
-Then, build the packages:
-```
-$ cd ..
+Then, clone the repository, build it, and then execute and run the mobile robot within the simulated environment:
+```console
 $ catkin_make
-```
-
-To open gazebo with the robot in it:
-```
 $ source devel/setup.bash
 $ roslaunch my_robot world.launch
 ```
 
-Finally, start the ball_chaser nodes in another terminal so that the robot can start following the white ball:
-```
+Next, in another terminal, navigate to the root level directory and launch the secondary launch file to start the Monte Carlo Localization:
+```console
 $ source devel/setup.bash
-$ roslaunch ball_chaser ball_chaser.launch
+$ roslaunch my_robot world.launch
 ```
-Now, when the white ball is moved within view of the front-facing camera on the robot, the robot will begin to chase the white ball.
+
+This will initialize all the nodes. In Rviz, you should see a red robot on a black and white map, surrounded by red arrows representing the particles associated with the AMCL filter.
+
+You can then command the robot to move in Rviz by pressing the "2D Nav Goal" button at the top, and clicking/dragging on the map. The robot will move the position you click, and the arrows will condense around the robot, indicating the filter's best guess as to the position of the robot (and the associated uncertainty).
+
+To operate the robot via the keyboard, open a third terminal, navigate to the root level directory, and execute:
+```console
+$ source devel/setup.bash
+$ rosrun teleop_twist_keyboard teleop_twist_keyboard.py
+```
+
+You can then command the robot to move using the keys indicated by the teleop node.
