@@ -37,7 +37,7 @@ $ roslaunch my_robot world.launch
 Next, in another terminal, navigate to the root level directory and launch the secondary launch file to start the Monte Carlo Localization:
 ```console
 $ source devel/setup.bash
-$ roslaunch my_robot world.launch
+$ roslaunch my_robot amcl.launch
 ```
 
 This will initialize all the nodes. In Rviz, you should see a red robot on a black and white map, surrounded by red arrows representing the particles associated with the AMCL filter.
