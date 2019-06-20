@@ -7,7 +7,7 @@
 This project involves using a robot mounted with a laser scanner and Monte Carlo Localization to localize the mobile robot in a simulated environment.
 
 ## Structure
-There are two packages within this repository:
+There are three packages within this repository:
 
 ### 1. my_robot
 This package defines the mobile robot under URDF as well the world that it is housed within.
@@ -27,15 +27,7 @@ $ sudo apt-get update && sudo apt-get upgrade -y
 $ sudo apt-get install ros-kinetic-navigation ros-kinetic-map-server ros-kinetic-move-base ros-kinetic-amcl libignition-math2-dev protobuf-compiler
 ```
 
-Next, download the packages within this repository called 'my_robot' and 'ball_chaser':
-```console
-$ git clone https://github.com/grejj/RoboticsND-Go-Chase-It.git
-$ cp -R RoboticsND-Go-Chase-It/ball_chaser .
-$ cp -R RoboticsND-Go-Chase-It/my_robot .
-$ rm -rf RoboticsND-Go-Chase-It
-```
-
-Then, clone the repository, build it, and then execute and run the mobile robot within the simulated environment:
+Clone the repository, build it, and then execute and run the mobile robot within the simulated environment:
 ```console
 $ catkin_make
 $ source devel/setup.bash
