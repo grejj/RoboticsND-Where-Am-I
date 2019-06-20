@@ -24,7 +24,7 @@ First, install Gazebo and ROS on Linux.
 Then, install the following ROS packages:
 ```console
 $ sudo apt-get update && sudo apt-get upgrade -y
-$ sudo apt-get install ros-kinetic-navigation ros-kinetic-map-server ros-kinetic-move-base ros-kinetic-amcl libignition-math2-dev protobuf-compiler
+$ sudo apt-get install ros-melodic-navigation ros-melodic-map-server ros-melodic-move-base ros-melodic-amcl libignition-math4-dev protobuf-compiler
 ```
 
 Clone the repository, build it, and then execute and run the mobile robot within the simulated environment:
